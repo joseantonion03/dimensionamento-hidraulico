@@ -1,5 +1,10 @@
 <?php
 
+// Permitindo que qualquer pessoa testem API da forma que quiser
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: *");
+header("Access-Control-Allow-Headers: *");
+
 try {
     $dados = json_decode(file_get_contents('php://input'));
 
