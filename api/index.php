@@ -34,10 +34,8 @@ try {
         && !empty($calcVazao)
         && !empty($calcAltura)
     ) {
-        exit(json_encode(array('status' => true, 'result' => calcularMCA($calcProfundidade, $calcAltura, $calcDistancia, $calcTubulacao, $calcVazao))));
-    } else {
-        exit(json_encode(array('status' => false)));
-    }
+        exit(json_encode(array('mca' => calcularMCA($calcProfundidade, $calcAltura, $calcDistancia, $calcTubulacao, $calcVazao))));
+    } 
 } catch (Exception $e) {
     //throw $th;
     exit(json_encode(array('message' => $e->getMessage())));
