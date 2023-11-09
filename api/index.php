@@ -12,10 +12,10 @@ try {
         throw new Exception("Você precisa preecher as informações");
     }
 
-    $calcProfundidade = $dados->profundidade || 1;
-    $calcDistancia = $dados->distancia || 1;
-    $calcVazao = $dados->vazao || 1;
-    $calcAltura = $dados->altura || 1;
+    $calcProfundidade = $dados->profundidade <= 0? 0.1 : $dados->profundidade;
+    $calcDistancia = $dados->distancia <= 0? 0.1 : $dados->distancia;
+    $calcVazao = $dados->vazao <= 0? 0.1 : $dados->vazao;
+    $calcAltura = $dados->altura <= 0? 0.1 : $dados->altura;
 
     $calcTubulacao = floatval($dados->tubulacao);
     $calcProfundidade = floatval($dados->profundidade);
