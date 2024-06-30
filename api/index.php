@@ -5,6 +5,39 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: *");
 header("Access-Control-Allow-Headers: *");
 
+function tubulacao($tubulacao)
+    {
+        switch ($tubulacao) {
+            case '25':
+                return 22.6;
+                break;
+            case '32':
+                return 29;
+                break;
+            case '40':
+                return 36.2;
+                break;
+            case '50':
+                return 46.7;
+                break;
+            case '60':
+                return 57;
+                break;
+            case '75':
+                return 70.5;
+                break;
+            case '100':
+                return 94.4;
+                break;
+            case '150':
+                return 144;
+                break;
+            default:
+                return $tubulacao;
+                break;
+        }
+    }
+
 try {
     $dados = json_decode(file_get_contents('php://input'));
 
@@ -17,7 +50,7 @@ try {
     $calcVazao = $dados->vazao <= 0? 0.1 : $dados->vazao;
     $calcAltura = $dados->altura <= 0? 0.1 : $dados->altura;
 
-    $calcTubulacao = floatval($dados->tubulacao);
+    $calcTubulacao = tubulacao($dados->tubulacao);
     $calcProfundidade = floatval($dados->profundidade);
     $calcDistancia = floatval($dados->distancia);
     $calcVazao = floatval($dados->vazao);
